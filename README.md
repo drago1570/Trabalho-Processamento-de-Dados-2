@@ -1,6 +1,6 @@
 # Trabalho-Processamento-de-Dados-2
 
-                       Sistema de estoque
+Sistema de estoque
                       
 Escreva um programa que faça o gerenciamento de produtos em um estoque.
 Para isso, o programa deve armazenar em um arquivo-texto as seguintes
