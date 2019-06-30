@@ -7,10 +7,16 @@ Para isso, o programa deve armazenar em um arquivo-texto as seguintes
 informações:
 
 Primeiro dado: código do produto;
+
 Segundo dado: preço de atacado;
+
 Terceiro dado: preço de varejo;
+
 Quarto dado: tipo do produto (1-Cosmético; 2-Higiene; 3-Alimento);
+
 Quinto dado: quantidade disponível no estoque;
+
+
 
 Com base nas informações contidas no arquivo, as seguintes operações devem
 ser realizadas:
