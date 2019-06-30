@@ -1,8 +1,10 @@
 #ifndef _ARQUIVOS_H_
-#define _ARQUiVOS_H_
+#define _ARQUIVOS_H_
 
 #include "Arquivos.c"
 
-void cadastro(const char arq);
+void open_file(char *arq);
+void read_file(char *arq);
+void remove_products(char *arq);
 
 #endif
