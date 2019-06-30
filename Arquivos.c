@@ -2,14 +2,29 @@
 #include <stdio.h>
 #include "Produtos.h"
 
-#define FILENAME "produtos.txt"
-
-void open_file(const char arq){
+void open_file(char *arq){
 	
 	FILE *file;
-	file = fopen(FILENAME,"w");
+	file = fopen(arq,"w");
 	
 	if(file == NULL){
-		printf("Erro ao tentar abrir o arquivos");
+		printf("Erro ao tentar abrir o arquivo");
 	}
+}
+
+void read_file(char *arq){
 	
+	FILE *file;
+	file = fopen(arq,"r");
+	
+	if (file == NULL){
+		printf("Erro ao tentar ler o arquivo");
+	}
+}
+
+void remove_products(char *arq){
+	
+	
+	
+	}
+		
