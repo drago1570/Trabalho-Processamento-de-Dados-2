@@ -37,39 +37,39 @@ void menu_principal(){
 	printf("[*]Escolha uma opção: ");
 	scanf("%d",&escolha);
 	
-	if(escolha==1){
-		system("clear");	
-		Interface_cadastro();
-	}
+	switch(escolha){
 	
-	if(escolha==2){
-		Interface_remove();
-	}
+		case 1:
+			system("clear");	
+			Interface_cadastro();
+			break;
 	
-	if(escolha==3){
-		print_mediunprice();
-	}
+		case 2:
+			Interface_remove();
+			break;
 	
-	if(escolha==4){
-		print_cheapprice();
-	}
+		case 3:
+			print_mediunprice();
+			break;
 	
-	if(escolha==5){
-		print_statistcs();
-	}
-
-	if(escolha==6){
-		exit(EXIT_SUCCESS);		
-	}
+		case 4:
+			print_cheapprice();
+			break;
+	
+		case 5:
+			print_statistcs();
+			break;
+			
+		default:
+			printf("Comando Invalido!");
+			exit(EXIT_FAILURE);
+			
+		}
 }
 
 void Interface_cadastro(){
 	
-	int i,a,qntd;
-
-
-	printf("Quantidade de produtos que deseja cadastrar: ");
-	scanf("%d",&qntd);
+	int i,a;
 	
 	system("clear");
 
@@ -79,9 +79,9 @@ void Interface_cadastro(){
 	
 	_Produtos Produtos;
 	
-	_Produtos vetor[qntd];
+	_Produtos vetor[100];
 	
-	for(i=0;i<qntd;i++){
+	for(i=0;i<100;i++){
 		
 		printf("\t\t\tCADASTRO\n\n\n");
 		
@@ -97,13 +97,8 @@ void Interface_cadastro(){
 		scanf("%f",&Produtos.quantidade);
 		vetor[i] = Produtos;
 	
-		fprintf(file,"PRODUTO %d",i+1);
-		fprintf(file,"\n\nCodigo: %d\n",vetor[i].codigo);
-		fprintf(file,"Preço atacado: %.2f\n",vetor[i].preco_atk);
-		fprintf(file,"Preço varejo: %.2f\n",vetor[i].preco_var);
-		fprintf(file,"Tipo de produtos(1-Cosmético; 2-Higiene; 3-Alimento): %d\n",vetor[i].tipo);
-		fprintf(file,"Quantidade no estoque: %.2f\n",vetor[i].quantidade);
-		fprintf(file,"\n---------------------------------------------------------\n");
+		fprintf(file,"%d	|	%.2f	|	%.2f	|%d|	%.2f\n",vetor[i].codigo,
+		vetor[i].preco_atk,vetor[i].preco_var,vetor[i].tipo,vetor[i].quantidade);
 		
 		printf("\nVoce deseja adicionar mais produtos?(1-S/2-N): ");
 
