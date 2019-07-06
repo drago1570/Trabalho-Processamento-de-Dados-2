@@ -1,30 +1,28 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "Produtos.h"
+#ifndef _ARQUIVOS_H_
+#define _ARQUIVOS_H_
 
-void open_file(char *arq){
-	
-	FILE *file;
-	file = fopen(arq,"w");
-	
-	if(file == NULL){
-		printf("Erro ao tentar abrir o arquivo");
-	}
-}
+#include "Arquivos.c"
 
-void read_file(char *arq){
-	
-	FILE *file;
-	file = fopen(arq,"r");
-	
-	if (file == NULL){
-		printf("Erro ao tentar ler o arquivo");
-	}
-}
+//Structs para a leitura dos dados dos arquivos txt
 
-void remove_products(char *arq){
-	
-	
-	
-	}
-		
+typedef struct{
+	int	vet_cosmetico_codigo,vet_cosmetico_tipo;
+	float vet_cosmetico_prec_atk,vet_cosmetico_prec_var,vet_cosmetico_qntd;
+}_Vet_Cosmetico;
+
+typedef struct{
+	int	vet_higiene_codigo,vet_higiene_tipo;
+	float vet_higiene_prec_atk,vet_higiene_prec_var,vet_higiene_qntd;
+}_Vet_Higiene;
+
+typedef struct{
+	int	vet_cosmetico_codigo,vet_cosmetico_tipo;
+	float vet_cosmetico_prec_atk,vet_cosmetico_prec_var,vet_cosmetico_qntd;
+}_Vet_Alimento;
+
+//Procedimentos para manipulação de arquivos
+
+void show_file();
+FILE *arq(const char *arg, const char *mode);
+
+#endif
