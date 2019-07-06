@@ -1,28 +1,43 @@
-#ifndef _ARQUIVOS_H_
-#define _ARQUIVOS_H_
+#include <stdlib.h>
+#include <stdio.h>
 
-#include "Arquivos.c"
+#define FILENAME2 "cosmeticos.txt"
+#define FILENAME3 "higiene.txt"
+#define FILENAME4 "alimentos.txt"
 
-//Structs para a leitura dos dados dos arquivos txt
+void show_file(){
+	
+  FILE *arq;
+  char Linha[100];
+  char *result;
+  int i=1;
+  system("clear");
+ 
+  arq = fopen("produtos.txt", "rt");
+  if (arq == NULL){
+	  system("clear");
+     printf("Problemas na abertura do arquivo\n");  
+  }
+  while (!feof(arq))
+  {
+	
+      result = fgets(Linha, 100, arq); 
+      if (result) 
+		printf("%s",Linha);
+      i++;
+  }
+  fclose(arq);
+}
 
-typedef struct{
-	int	vet_cosmetico_codigo,vet_cosmetico_tipo;
-	float vet_cosmetico_prec_atk,vet_cosmetico_prec_var,vet_cosmetico_qntd;
-}_Vet_Cosmetico;
 
-typedef struct{
-	int	vet_higiene_codigo,vet_higiene_tipo;
-	float vet_higiene_prec_atk,vet_higiene_prec_var,vet_higiene_qntd;
-}_Vet_Higiene;
+FILE *arq(const char *arg, const char *mode) {
+ 
+     FILE *fp;
+     if(!(fp = fopen(arg, mode))) {
+            fputs("Erro ao abrir arquivo\n", stdout);
+            exit(EXIT_FAILURE);
+      }
+      return fp;
+}
 
-typedef struct{
-	int	vet_cosmetico_codigo,vet_cosmetico_tipo;
-	float vet_cosmetico_prec_atk,vet_cosmetico_prec_var,vet_cosmetico_qntd;
-}_Vet_Alimento;
 
-//Procedimentos para manipulação de arquivos
-
-void show_file();
-FILE *arq(const char *arg, const char *mode);
-
-#endif
